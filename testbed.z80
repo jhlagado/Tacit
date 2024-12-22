@@ -16,7 +16,7 @@
 
 testsStart:
 
-    ; write your string containing a line of Tacit code 
+    ; write your string containing a line of TACIT code 
     ; followed by the expected value of the top of stack after running it
     test "0t! /U(/i 4 < /W t 1+ t!) t ", 4
 

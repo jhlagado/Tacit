@@ -36,7 +36,7 @@ JP (IY)
     CALL init
     JP testsStart
 
-    .include "Tacit.asm"
+    .include "TACIT.asm"
     .include "ram.asm"
     .include "test.util.mac.asm"
     .include "test.array.mac.asm"
@@ -90,7 +90,7 @@ DB ":R \\f!~\\v! (\\v@ %@ \\f@\\^ \\v! 2+) ' \\v@;" ; v0 arr len fun -- val redu
     CALL init
     JP testsStart
 
-    .include "Tacit.asm"
+    .include "TACIT.asm"
     .include "ram.asm"
     .include "test.util.mac.asm"
     ; .include "test.co.mac.asm"
@@ -137,7 +137,7 @@ DB ":F \\#2 \\#2 $ ;" ; -- val 2rfrom 2r>
     CALL init
     JP testsStart
 
-    .include "Tacit.asm"
+    .include "TACIT.asm"
     .include "ram.asm"
     .include "test.util.mac.asm"
     .include "test.tester.mac.asm"

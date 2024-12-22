@@ -542,7 +542,7 @@
 00BF                             ; 
 00BF                             ; *************************************************************************
 00BF                             ; 
-00BF                             ;       Tacit 1.0 Minimal Interpreter for the Z80
+00BF                             ;       TACIT 1.0 Minimal Interpreter for the Z80
 00BF                             ; 
 00BF                             ;       John Hardy and Ken Boak
 00BF                             ;       incorporates bit-bang serial routines by Craig Jones
@@ -581,9 +581,9 @@
 00BF                             ; **************************************************************************
 00BF                             ; Page 0  Initialisation
 00BF                             ; **************************************************************************		
-0180                          .ORG   ROMSTART + $180   ; 0+180 put Tacit code from here	
+0180                          .ORG   ROMSTART + $180   ; 0+180 put TACIT code from here	
 0180                             ; **************************************************************************
-0180                             ; Macros must be written in Tacit and end with ;
+0180                             ; Macros must be written in TACIT and end with ;
 0180                             ; this code must not span pages
 0180                             ; **************************************************************************
 0180                MACROS:      
@@ -654,7 +654,7 @@
 01F2   23                     DB   lsb(depth_)   ;D      depth of stack
 01F3   3B                     DB   lsb(else_)   ;E      else
 01F4   31                     DB   lsb(falsex_)   ;F      false condition
-01F5   53                     DB   lsb(go_)   ;G      go execute Tacit code
+01F5   53                     DB   lsb(go_)   ;G      go execute TACIT code
 01F6   09                     DB   lsb(aNop_)   ;H
 01F7   70                     DB   lsb(inPort_)   ;I      input from port
 01F8   09                     DB   lsb(aNop_)   ;J
@@ -663,7 +663,7 @@
 01FB   09                     DB   lsb(aNop_)   ;M
 01FC   7A                     DB   lsb(newln_)   ;N      prints a newline to output
 01FD   7F                     DB   lsb(outPort_)   ;O      output to port
-01FE   4E                     DB   lsb(prompt_)   ;P      print Tacit prompt
+01FE   4E                     DB   lsb(prompt_)   ;P      print TACIT prompt
 01FF   09                     DB   lsb(aNop_)   ;Q
 0200   09                     DB   lsb(aNop_)   ;R
 0201   0B                     DB   lsb(arrSize_)   ;S      array size
@@ -685,10 +685,10 @@
 0212   08 20 08 00            .CSTR   "\b \b"   
 0216   18 1D                  JR   interpret2   
 0218                START:       
-0218   31 00 0A               LD   SP,DSTACK   ; start of Tacit
+0218   31 00 0A               LD   SP,DSTACK   ; start of TACIT
 021B   CD DE 02               CALL   init   ; setups
 021E   CD 92 03               CALL   printStr   ; prog count to stack, put code line 235 on stack then call print
-0221   4D 49 4E 54 32 2E 30 0D 0A 00 .CSTR   "Tacit1.0\r\n"   
+0221   4D 49 4E 54 32 2E 30 0D 0A 00 .CSTR   "TACIT1.0\r\n"   
 022B                INTERPRET:      
 022B   CD 82 03               CALL   prompt   
 022E   01 00 00               LD   bc,0   ; load bc with offset into TIB, decide char into tib or execute or control
@@ -736,7 +736,7 @@
 0277                MACRO:       
 0277   ED 43 7C 0C            LD   (vTIBPtr),bc   
 027B   D5                     PUSH   de   
-027C   CD C1 03               CALL   ENTER   ;Tacit go operation and jump to it
+027C   CD C1 03               CALL   ENTER   ;TACIT go operation and jump to it
 027F   2F 47 00               .CSTR   "/G"   
 0282   ED 4B 7C 0C            LD   bc,(vTIBPtr)   
 0286   18 AD                  JR   interpret2   

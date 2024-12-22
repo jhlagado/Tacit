@@ -1,6 +1,6 @@
 ; *************************************************************************
 ;
-;       Tacit Programming Language Z80 v1.0 
+;       TACIT Programming Language Z80 v1.0 
 ;
 ;       by John Hardy 2024
 ;
@@ -41,10 +41,10 @@
 ; Page 0  Initialisation
 ; **************************************************************************		
 
-	.ORG ROMSTART + $180		; 0+180 put Tacit code from here	
+	.ORG ROMSTART + $180		; 0+180 put TACIT code from here	
 
 ; **************************************************************************
-; Macros must be written in Tacit and end with ; 
+; Macros must be written in TACIT and end with ; 
 ; this code must not span pages
 ; **************************************************************************
 macros:
@@ -117,7 +117,7 @@ iAltCodes:
     db     lsb(depth_)      ;D      depth of stack
     db     lsb(else_)       ;E      else
     db     lsb(falsex_)     ;F      false condition
-    db     lsb(go_)         ;G      go execute Tacit code
+    db     lsb(go_)         ;G      go execute TACIT code
     db     lsb(aNop_)       ;H
     db     lsb(inPort_)     ;I      input from port
     db     lsb(aNop_)       ;J
@@ -126,7 +126,7 @@ iAltCodes:
     db     lsb(aNop_)       ;M
     db     lsb(newln_)      ;N      prints a newline to output
     db     lsb(outPort_)    ;O      output to port
-    db     lsb(prompt_)     ;P      print Tacit prompt
+    db     lsb(prompt_)     ;P      print TACIT prompt
     db     lsb(aNop_)       ;Q
     db     lsb(aNop_)       ;R
     db     lsb(arrSize_)    ;S      array size
@@ -149,10 +149,10 @@ backSpace:
     jr interpret2
     
 start:
-    ld SP,DSTACK		; start of Tacit
+    ld SP,DSTACK		; start of TACIT
     call init		    ; setups
     call printStr		; prog count to stack, put code line 235 on stack then call print
-    .cstr "Tacit1.0\r\n"
+    .cstr "TACIT1.0\r\n"
 
 interpret:
     call prompt
@@ -207,7 +207,7 @@ waitchar:
 macro:                          
     ld (vTIBPtr),bc
     push de
-    call ENTER		;Tacit go operation and jump to it
+    call ENTER		;TACIT go operation and jump to it
     .cstr "/G"
     ld bc,(vTIBPtr)
     jr interpret2
